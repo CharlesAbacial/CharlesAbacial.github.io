@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            background-image: url('Background.webp');
+            background-size: cover;
+            color: #908525;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 800;
+            height: 1236;
+            display: block;
+            margin: 0 auto;
+        }
+        .back-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #5d331e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #5d331e;
+        }
+        .item-info {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #5d331e;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Beverages</h1>
+    <img src="BeveragesMenu.png" usemap="#beverageMap">
+
+    <map name="beverageMap">
+        <area shape="rect" coords="315,158,493,354" href="#cocktails" alt="Cocktails">
+        <area shape="rect" coords="95,464,283,657" href="#coffee" alt="Coffee">
+        <area shape="rect" coords="519,474,705,671" href="#juices" alt="Juices">
+        <area shape="rect" coords="91,790,280,994" href="#tea" alt="Tea">
+        <area shape="rect" coords="501,793,693,993" href="#soda" alt="Soda">
+    </map>
+
+    <div id="cocktails" class="item-info">
+        <h2>Cocktails</h2>
+        <p>Price: P120</p>
+        <p>A delicious cocktails made with fresh ingredients and topped with fruits.</p>
+    </div>
+
+    <div id="coffee" class="item-info">
+        <h2>Coffee</h2>
+        <p>Price: P80</p>
+        <p>Rich, aromatic coffee brewed to perfection, with a smooth finish and a hint of warmth - Perfect for any time of day.</p>
+    </div>
+
+    <div id="juices" class="item-info">
+        <h2>Juices</h2>
+        <p>Price: P80</p>
+        <p>Freshly squeezed Juices, full of vitamins.</p>
+    </div>
+
+    <div id="tea" class="item-info">
+        <h2>Tea</h2>
+        <p>Price: P80</p>
+        <p>A warm, soothing Tea with a touch of honey.</p>
+    </div>
+
+    <div id="soda" class="item-info">
+        <h2>Soda</h2>
+        <p>Price: P60</p>
+        <p>A classic soda that makes your food much more enjoyable.</p>
+    </div>
+
+    <button class="back-button" onclick="location.href='home.html'">Back to Menu</button>
+
+    <script>
+
+        document.querySelectorAll('area').forEach(area => {
+            area.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = area.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                
+                document.querySelectorAll('.item-info').forEach(item => {
+                    item.style.display = 'none';
+                });
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appetizers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            background-image: url('Background.webp');
+            background-size: cover;
+            color: #908525;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 800;
+            height: 1236;
+            display: block;
+            margin: 0 auto;
+        }
+        .back-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #5d331e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #5d331e;
+        }
+        .item-info {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #5d331e;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Appetizers</h1>
+    <img src="AppetizersMenu.png" usemap="#AppetizerMap">
+
+    <map name="AppetizerMap">
+        <area shape="rect" coords="31,151,504,353" href="#saladtoast" alt="Salad Toast">
+        <area shape="rect" coords="95,464,283,657" href="#creambread" alt="Cream Bread">
+        <area shape="rect" coords="519,474,705,671" href="#mochacake" alt="Mocha Cake">
+        <area shape="rect" coords="91,790,280,994" href="#frenchfries" alt="French Fries">
+        <area shape="rect" coords="501,793,693,993" href="#misosoup" alt="Miso Soup">
+    </map>
+
+    <div id="saladtoast" class="item-info">
+        <h2>Salad Toast</h2>
+        <p>Price: P150</p>
+        <p>A crunchy salad toast topped with a vibrant medley of fresh vegetables and herbs, bringing a refreshing burst of flavor to this wholesome snack.</p>
+    </div>
+
+    <div id="creambread" class="item-info">
+        <h2>Cream Bread</h2>
+        <p>Price: P100</p>
+        <p>A soft, fluffy cream bread infused with a rich blend of sweet and savory flavors, creating a delightful treat that melts in your mouth.</p>
+    </div>
+
+    <div id="mochacake" class="item-info">
+        <h2>Mocha Cake</h2>
+        <p>Price: P130</p>
+        <p>A rich, indulgent mocha cake layered with velvety coffee-infused frosting, offering a perfect balance of chocolate and espresso that delights every dessert lover.</p>
+    </div>
+
+    <div id="frenchfries" class="item-info">
+        <h2>French Fries</h2>
+        <p>Price: P120</p>
+        <p>Crispy, golden French fries seasoned to perfection, delivering a satisfying crunch and a burst of flavor in every delicious bite.</p>
+    </div>
+
+    <div id="misosoup" class="item-info">
+        <h2>Miso Soup</h2>
+        <p>Price: P100</p>
+        <p>A comforting bowl of miso soup, brimming with umami flavor and loaded with fresh tofu and seaweed, offering a warm and nourishing embrace with each sip.</p>
+    </div>
+
+    <button class="back-button" onclick="location.href='home.html'">Back to Menu</button>
+
+    <script>
+ 
+        document.querySelectorAll('area').forEach(area => {
+            area.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = area.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                
+                document.querySelectorAll('.item-info').forEach(item => {
+                    item.style.display = 'none';
+                });
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
+
+</body>
+</html>

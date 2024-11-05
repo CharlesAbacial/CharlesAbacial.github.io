@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            background-image: url('Background.webp');
+            background-size: cover;
+            color: #908525;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 800;
+            height: 1236;
+            display: block;
+            margin: 0 auto;
+        }
+        .back-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #5d331e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #5d331e;
+        }
+        .item-info {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #5d331e;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: none;
+        
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Main Course</h1>
+    <img src="MainCourseMenu.png" usemap="#maincourseMap">
+
+     <map name="maincourseMap">
+        <area shape="rect" coords="31,151,504,353" href="#spicychicken" alt="Spicy Chicken">
+        <area shape="rect" coords="95,464,283,657" href="#hotdog" alt="Hotdog">
+        <area shape="rect" coords="519,474,705,671" href="#chickenburger" alt="Chicken Burger">
+        <area shape="rect" coords="91,790,280,994" href="#cheesesandwich" alt="Cheeses Sandwich">
+        <area shape="rect" coords="501,793,693,993" href="#cheeseburger" alt="Cheese Burger">
+    </map>
+
+    <div id="spicychicken" class="item-info">
+        <h2>Spicy Chicken</h2>
+        <p>Price: P200</p>
+        <p>Tender, marinated chicken grilled to perfection, topped with a vibrant mix of fresh herbs and spices for the perfect spicy kick.</p>
+    </div>
+
+    <div id="hotdog" class="item-info">
+        <h2>Hotdog</h2>
+        <p>Price: P150</p>
+        <p>A juicy, grilled hotdog topped with a vibrant mix of fresh herbs and spices, adding the perfect kick to this classic favorite.</p>
+    </div>
+
+    <div id="chickenburger" class="item-info">
+        <h2>Chicken Burger</h2>
+        <p>Price: P250</p>
+        <p>A juicy, grilled chicken burger topped with a zesty blend of fresh herbs and spices, delivering a delightful twist to this beloved classic.</p>
+    </div>
+
+    <div id="cheesesandwich" class="item-info">
+        <h2>Cheese Sandwich</h2>
+        <p>Price: P120</p>
+        <p>A warm, melty cheese sandwich layered with a delightful mix of fresh herbs and spices, creating a comforting yet flavorful twist on this timeless favorite.</p>
+    </div>
+
+    <div id="cheeseburger" class="item-info">
+        <h2>Cheese Burger</h2>
+        <p>Price: P150</p>
+        <p>A juicy, grilled cheeseburger adorned with a savory blend of fresh herbs and spices, elevating this classic comfort food to a whole new level of deliciousness.</p>
+    </div>
+
+    <button class="back-button" onclick="location.href='home.html'">Back to Menu</button>
+
+    <script>
+
+        document.querySelectorAll('area').forEach(area => {
+            area.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = area.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                
+                document.querySelectorAll('.item-info').forEach(item => {
+                    item.style.display = 'none';
+                });
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
+
+</body>
+</html>
